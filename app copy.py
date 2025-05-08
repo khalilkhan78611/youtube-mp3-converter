@@ -69,11 +69,6 @@ def index():
     """Main page with simple interface"""
     return render_template('index.html')
 
-@app.route('/about')
-def about():
-    """About page"""
-    return render_template('about.html')
-
 @app.route('/progress/<video_id>')
 def progress(video_id):
     """API endpoint to get video title"""

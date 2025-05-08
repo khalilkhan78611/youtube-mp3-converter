@@ -806,3 +806,97 @@
 2025-05-08 10:34:18,692 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 10:34:18] "GET /api/progress/AMA0kgwJY0Y HTTP/1.1" 200 -
 2025-05-08 10:35:18,697 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 10:35:18] "GET /api/progress/AMA0kgwJY0Y HTTP/1.1" 200 -
 2025-05-08 10:36:18,691 - werkzeug - INFO - 127.0.0.1 - - [08/May/2025 10:36:18] "GET /api/progress/AMA0kgwJY0Y HTTP/1.1" 200 -
+2025-05-08 21:34:41,115 - INFO - All dependencies are available
+2025-05-08 21:34:41,174 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.104:5000
+2025-05-08 21:34:41,175 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 21:34:50,002 - INFO - 127.0.0.1 - - [08/May/2025 21:34:50] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:34:50,264 - INFO - 127.0.0.1 - - [08/May/2025 21:34:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-08 21:35:28,769 - INFO - All dependencies are available
+2025-05-08 21:35:28,800 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-08 21:35:28,800 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 21:35:33,186 - INFO - 127.0.0.1 - - [08/May/2025 21:35:33] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:35:36,424 - INFO - 127.0.0.1 - - [08/May/2025 21:35:36] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:36:43,385 - __main__ - INFO - Starting application, yt-dlp path: C:\Users\khalil\Downloads\New folder (2)\frontend\ytd\yt-dlp.exe
+2025-05-08 21:36:43,420 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.104:5000
+2025-05-08 21:36:43,420 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 21:36:49,131 - werkzeug - ERROR - 192.168.0.104 - - [08/May/2025 21:36:49] code 400, message Bad request version ('±F\x8cá$_Me\x9c\x89¶\x8a\x12')
+2025-05-08 21:36:49,133 - werkzeug - INFO - 192.168.0.104 - - [08/May/2025 21:36:49] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03\x08Ê\x7f¢\x84\x1aBéúóÕÏ\x80W[Ï\x85¥ENÛ\x81È\x87Îc\x8bQ\x15·øê \x15a%Ê\x85\x04LP-y»wºWÇ\x17Iâ\x04ÞHÿ\x15\x80\x15­f=²\x91a\x87\x00 êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sêê\x00\x00\x003\x04ï\x04íúú\x00\x01\x00\x11ì\x04ÀÈ5c-Gm¦Ê\x82\x83Ø\x14Ñ\x87B®#\x96þ¶­ñ\x13Ï·\x8bÍÚ\x03e1;Ä¯\x8bÆ\x94'{®#\x89÷ç@\x9eÐO\x1d\x99^>\x19\x83äB\x17?$V\x910>\x0eK³\x9c¹¹q#j\x84¼c;\x89\x8b*\x93º\x90,ÅÊ\x83lDàE¸H\x95,C)pðÊ\x9c¬Å£)2ºD\x1c±F\x8cá$_Me\x9c\x89¶\x8a\x12[0m" 400 -
+2025-05-08 21:36:49,138 - werkzeug - ERROR - 192.168.0.104 - - [08/May/2025 21:36:49] code 400, message Bad request version ('§')
+2025-05-08 21:36:49,140 - werkzeug - INFO - 192.168.0.104 - - [08/May/2025 21:36:49] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03ÖAC¾}\x97|\x0b\x9cz©k\x86\x04áL«I\x9a-åtâMo$»K\x8aÂNæ ³\x08h]u­ìý¿kxÝ#ílè(K\x81æ"DRçq¹Ý\x81>\x1euÁ\x00 ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063::\x00\x00þ\x0d\x00º\x00\x00\x01\x00\x01y\x00 \x80£V\x98éKè÷?ðÿ\x8d¸\x8b±"zV=®1ÒYøþ»¦"ÆFÙ\x1b\x00\x90\x99÷¤g\x94\x15ÊòdÒ\x00\x0f \x106¥Èó¶\x80\\\x0b\x0fG9ooÿÅ[£71\x0d5âÖ¶l[â!Ç\x1eT\x18Ûð*\x13!\x1doû\x0b\x09PÉ\x91¾Ð$\x8dÂdK\x85C_e'ýå÷#ßÏ\x1a°¥¸Û\x9b>\x0fi#\x08ßÿódúf÷\x8e\x19|$V\x8eÔÖ9Çö¤\x11\x0c³\x82h\x13Ùõ\x9dôqª@îd«uq\x12õ¤!f¤\x7f?N\x98ß_6pÛ\x08\x1e\x98à\x003\x04ï\x04íºº\x00\x01\x00\x11ì\x04À\x98È\x1fQwwÓ£\x92@Ð`Ø\x1a\x1e$Êgü"\x85Ô¤Ítõ\x9fM\x18f\x10´\x0fe\x81 ¡KÈÀ'®\x87µ\x14,ºÎ\x88h\x08óô}\x13¬~9±\x9e$\x9c³t÷Ad\x946\x19çaº\x19¬Ñ\x88R\x1dêpë9Å\x13¼uCxr\x07×2Ùê#WJ\x95\x08\x19\x9bLù\x8fûx°MÀÌx\x85À·beQuF\x1b\x11\x0b9»´§'mà\x88k8VnÝE\x00ËWÊJº·óútæ«Z»Zmz \x04ÅS0ák})\x01»frÍõ\x19L®\x14XYð¶\x15\x07»²Á\x91Á\x96\x94àG\x82Õ\x82Ã½\x970¤\x8b&Ó@\x92\x1b\x0c¢\x1eë\x13hè\x8c2HK¸\x15:íåjÀõoÈhZ»â¿-\x0blý\x92\x05í\x1a5ú§2¦RªÒ\\¼B¸-Ñz\x90\x07\x98\x0e`Ë¼õwmSª5Ée)í«ÏíTg\x9c\x9c¥I\x8c®\x14cNt'x\x1cÂ´\x98(¿\x80±\x8dp·Y  =6&¨È:¼\x7f36`×\x96Tz\x83~¥ÆØ<z##T÷\x83Ç\x7fT\x09\x81\x91\x81[¬Åf`Á¼K>9R\x97Ù§\x86\x1c÷\x1b=C\x12¼ö\x01`¦±S¡q§µ#ÜC\x94¾ª Ót´\x1e§[0m" 400 -
+2025-05-08 21:36:50,756 - werkzeug - INFO - 192.168.0.104 - - [08/May/2025 21:36:50] "GET / HTTP/1.1" 200 -
+2025-05-08 21:36:50,872 - werkzeug - INFO - 192.168.0.104 - - [08/May/2025 21:36:50] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-08 21:36:51,020 - werkzeug - INFO - 192.168.0.104 - - [08/May/2025 21:36:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-08 21:39:38,726 - INFO - All dependencies are available
+2025-05-08 21:39:38,762 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.104:5000
+2025-05-08 21:39:38,763 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 21:39:43,478 - INFO - 192.168.0.104 - - [08/May/2025 21:39:43] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:39:45,488 - INFO - 192.168.0.104 - - [08/May/2025 21:39:45] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:39:50,705 - INFO - 127.0.0.1 - - [08/May/2025 21:39:50] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:39:53,728 - INFO - 127.0.0.1 - - [08/May/2025 21:39:53] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:41:37,763 - INFO - 127.0.0.1 - - [08/May/2025 21:41:37] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:41:57,933 - INFO - 127.0.0.1 - - [08/May/2025 21:41:57] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:41:59,887 - INFO - 127.0.0.1 - - [08/May/2025 21:41:59] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:42:05,207 - INFO - 192.168.0.104 - - [08/May/2025 21:42:05] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:43:49,566 - INFO - 127.0.0.1 - - [08/May/2025 21:43:49] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:44:29,369 - INFO - All dependencies are available
+2025-05-08 21:44:29,420 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.104:5001
+2025-05-08 21:44:29,421 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 21:44:33,969 - INFO - 127.0.0.1 - - [08/May/2025 21:44:33] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:44:34,429 - INFO - 127.0.0.1 - - [08/May/2025 21:44:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-08 21:45:34,677 - INFO - All dependencies are available
+2025-05-08 21:45:34,706 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.104:5001
+2025-05-08 21:45:34,706 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 21:45:38,203 - INFO - 192.168.0.104 - - [08/May/2025 21:45:38] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-08 21:45:38,488 - INFO - 192.168.0.104 - - [08/May/2025 21:45:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-08 21:47:39,718 - INFO - All dependencies are available
+2025-05-08 21:47:39,750 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.104:5001
+2025-05-08 21:47:39,751 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 21:47:41,526 - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\khalil\AppData\Roaming\Python\Python313\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\khalil\AppData\Roaming\Python\Python313\site-packages\flask\app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "C:\Users\khalil\AppData\Roaming\Python\Python313\site-packages\flask\app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\khalil\AppData\Roaming\Python\Python313\site-packages\flask\app.py", line 1212, in make_response
+    raise TypeError(
+    ...<3 lines>...
+    )
+TypeError: The view function for 'index' did not return a valid response. The function either returned None or ended without a return statement.
+2025-05-08 21:47:41,536 - INFO - 127.0.0.1 - - [08/May/2025 21:47:41] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-08 21:50:01,743 - INFO - All dependencies are available
+2025-05-08 21:50:01,962 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.104:5001
+2025-05-08 21:50:01,963 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 21:50:01,966 - INFO -  * Restarting with stat
+2025-05-08 21:50:03,767 - INFO - All dependencies are available
+2025-05-08 21:50:03,843 - WARNING -  * Debugger is active!
+2025-05-08 21:50:03,900 - INFO -  * Debugger PIN: 105-513-516
+2025-05-08 21:50:09,990 - INFO - 127.0.0.1 - - [08/May/2025 21:50:09] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-08 21:50:10,201 - INFO - 127.0.0.1 - - [08/May/2025 21:50:10] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-08 21:50:10,222 - INFO - 127.0.0.1 - - [08/May/2025 21:50:10] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-08 21:50:10,409 - INFO - 127.0.0.1 - - [08/May/2025 21:50:10] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=pv2awQ4pahFDAYbPkqrc HTTP/1.1" 200 -
+2025-05-08 21:50:10,442 - INFO - 127.0.0.1 - - [08/May/2025 21:50:10] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
