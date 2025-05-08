@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube to MP3 Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #e74c3c;
+        }
+        .subtitle {
+            color: #7f8c8d;
+        }
+        .form-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .download-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .download-btn:hover {
+            background: #c0392b;
+        }
+        .error-message {
+            color: #e74c3c;
+            background: #fdecea;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e74c3c;
+        }
+        .instructions {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .disclaimer {
+            font-size: 14px;
+            color: #7f8c8d;
+            text-align: center;
+            margin-top: 30px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YouTube to MP3 Downloader</h1>
+            <p class="subtitle">Extract audio from YouTube videos for personal use</p>
+        </header>
+        
+        <main>
+            <div class="form-container">
+                <form method="POST" action="/">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            name="youtube_url" 
+                            placeholder="Enter YouTube URL (e.g., https://www.youtube.com/watch?v=...)" 
+                            required
+                        >
+                    </div>
+                    <button type="submit" class="download-btn">Convert to MP3</button>
+                </form>
+            </div>
+            
+            {% if error %}
+            <div class="error-message">
+                {{ error }}
+            </div>
+            {% endif %}
+            
+            <div class="instructions">
+                <h2>How to use:</h2>
+                <ol>
+                    <li>Copy a YouTube video URL</li>
+                    <li>Paste it in the input field above</li>
+                    <li>Click "Convert to MP3"</li>
+                    <li>Wait for processing</li>
+                    <li>Download your MP3 file</li>
+                </ol>
+            </div>
+            
+            <div class="disclaimer">
+                <p><strong>Note:</strong> This tool is for personal use only. Please respect copyright laws and YouTube's Terms of Service.</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p><a href="{{ url_for('about') }}">About</a> | For educational purposes only</p>
+        </footer>
+    </div>
+</body>
+</html>

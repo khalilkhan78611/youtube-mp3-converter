@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Progress - YouTube to MP3 Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #e74c3c;
+        }
+        .subtitle {
+            color: #7f8c8d;
+        }
+        .progress-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #e74c3c;
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .status {
+            font-weight: bold;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        .status.completed {
+            color: #27ae60;
+        }
+        .status.error {
+            color: #e74c3c;
+        }
+        .download-btn {
+            display: none;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+        .download-btn:hover {
+            background: #c0392b;
+        }
+        .spinner {
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #e74c3c;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        .wait-message {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            color: #2c3e50;
+        }
+        .wait-message p {
+            margin: 5px 0;
+        }
+        .wait-message .icon {
+            color: #3498db;
+            margin-right: 8px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Download Progress</h1>
+            <p class="subtitle">Your audio is being processed</p>
+        </header>
+        
+        <main>
+            <div class="progress-container">
+                <h2 id="video-title">Processing YouTube video...</h2>
+                
+                <div class="wait-message">
+                    <p><span class="icon">ℹ️</span> <strong>Please wait while we process your download</strong></p>
+                    <p>We're converting the YouTube video to MP3 format. Longer videos may take more time to process.</p>
+                    <p>The download will start automatically when ready. Please keep this page open.</p>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+                
+                <div class="status" id="status-text">
+                    <span class="spinner"></span> Initializing download...
+                </div>
+                
+                <a href="#" class="download-btn" id="download-btn">Download MP3</a>
+                
+                <div id="error-message" style="display: none; color: #e74c3c; margin-top: 15px;"></div>
+            </div>
+            
+            <div class="back-link">
+                <a href="{{ url_for('index') }}">Back to Downloader</a>
+            </div>
+        </main>
+        
+        <footer>
+            <p><a href="{{ url_for('about') }}">About</a> | For educational purposes only</p>
+        </footer>
+    </div>
+    
+    <script>
+        const videoId = "{{ video_id }}";
+        const progressFill = document.getElementById('progress-fill');
+        const statusText = document.getElementById('status-text');
+        const videoTitle = document.getElementById('video-title');
+        const downloadBtn = document.getElementById('download-btn');
+        const errorMessage = document.getElementById('error-message');
+        
+        function updateProgress() {
+            fetch(`/api/progress/${videoId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Update progress bar
+                    progressFill.style.width = `${data.percentage}%`;
+                    
+                    // Update title if available
+                    if (data.title) {
+                        videoTitle.textContent = data.title;
+                    }
+                    
+                    // Update status based on download state
+                    if (data.status === 'completed') {
+                        statusText.innerHTML = '<span style="color: #27ae60;">✓</span> Download complete!';
+                        statusText.classList.add('completed');
+                        
+                        // Show download button
+                        downloadBtn.style.display = 'inline-block';
+                        downloadBtn.href = `/download/${data.filename}`;
+                        
+                        // Stop polling
+                        clearInterval(progressInterval);
+                    } 
+                    else if (data.status === 'error') {
+                        statusText.innerHTML = '<span style="color: #e74c3c;">✗</span> Download failed';
+                        statusText.classList.add('error');
+                        
+                        // Show error message
+                        errorMessage.textContent = data.error || 'An unknown error occurred';
+                        errorMessage.style.display = 'block';
+                        
+                        // Stop polling
+                        clearInterval(progressInterval);
+                    }
+                    else if (data.status === 'downloading') {
+                        statusText.innerHTML = `<span class="spinner"></span> Downloading... ${data.percentage.toFixed(1)}%`;
+                    }
+                    else if (data.status === 'processing') {
+                        statusText.innerHTML = `<span class="spinner"></span> Processing audio...`;
+                    }
+                    else if (data.status === 'getting_info') {
+                        statusText.innerHTML = `<span class="spinner"></span> Getting video information...`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching progress:', error);
+                    errorMessage.textContent = 'Error checking progress. Please refresh the page.';
+                    errorMessage.style.display = 'block';
+                });
+        }
+        
+        // Update progress immediately and then every second
+        updateProgress();
+        const progressInterval = setInterval(updateProgress, 1000);
+    </script>
+</body>
+</html>
