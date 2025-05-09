@@ -1,4 +1,4 @@
-name: Docker Build (No Login)
+name: Docker Build and Push
 
 on:
   push:
@@ -7,15 +7,37 @@ on:
     branches: ["master"]
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build Docker Image (No Push)
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: true  # Disable pushing to registry
-          tags: khalilkhan78611/youtube-mp3-converter:local-build
+          push: true
+          tags: |
+            khalilkhan78611/youtube-mp3-converter:latest
+            khalilkhan78611/youtube-mp3-converter:${{ github.sha }}
+
+      - name: Save image as artifact
+        if: ${{ github.event_name == 'push' }}  # Only on push events
+        run: |
+          docker pull khalilkhan78611/youtube-mp3-converter:latest
+          docker save khalilkhan78611/youtube-mp3-converter:latest -o image.tar
+        shell: bash
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-image
+          path: image.tar
+          retention-days: 1  # Keeps artifact for 1 day (adjust as needed)
