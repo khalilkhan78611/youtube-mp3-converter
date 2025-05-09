@@ -17,5 +17,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: false  # Disable pushing to registry
+          push: true  # Disable pushing to registry
           tags: khalilkhan78611/youtube-mp3-converter:local-build
