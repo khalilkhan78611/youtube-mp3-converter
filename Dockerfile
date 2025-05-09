@@ -1,23 +1,24 @@
-# Use a slim Python base image
-FROM python:3.11-slim
+FROM python:3.9-slim
 
-# Set working directory inside the container
+# Install curl for health checks
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
 WORKDIR /app
 
-# Copy requirements file to install dependencies
+# Copy and install dependencies
 COPY requirements.txt .
-
-# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
+# Copy app code
 COPY . .
 
-# Expose the port your app runs on
+# Expose port (adjust if your app uses a different port)
 EXPOSE 8000
 
-# Set environment variables (optional, adjust as needed)
-ENV PYTHONUNBUFFERED=1
+# Define health check for Coolify
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD curl --fail http://localhost:8000/health || exit 1
 
-# Command to run the application
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "app:app"]
+# Run the app (using gunicorn; adjust for your app)
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "main:app"]
