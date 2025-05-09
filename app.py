@@ -92,6 +92,11 @@ def progress(video_id):
             'message': str(e)
         }), 500
 
+@app.route('/health')
+def health():
+    """Health check endpoint for Coolify"""
+    return jsonify({'status': 'ok'})
+
 @app.route('/static/<path:filename>')
 def static_files(filename):
     """Static file serving"""
@@ -111,5 +116,6 @@ if __name__ == '__main__':
     os.makedirs('static', exist_ok=True)
     os.makedirs('templates', exist_ok=True)
     
-    # Run the app
-    app.run(host='0.0.0.0', port=5001, threaded=True, debug=True)
+    # Run the app (for local development only)
+    logger.warning("Running in development mode. Use a production WSGI server like gunicorn for deployment.")
+    app.run(host='0.0.0.0', port=5001, threaded=True)
