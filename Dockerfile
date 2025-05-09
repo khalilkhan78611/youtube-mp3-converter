@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 
-# Install curl for health checks
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+# Install curl and ffmpeg (required for yt_dlp)
+RUN apt-get update && apt-get install -y curl ffmpeg && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
@@ -13,12 +13,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy app code
 COPY . .
 
-# Expose port (adjust if your app uses a different port)
-EXPOSE 8000
+# Expose port 5001 (your app's port)
+EXPOSE 5001
 
 # Define health check for Coolify
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-  CMD curl --fail http://localhost:8000/health || exit 1
+  CMD curl --fail http://localhost:5001/health || exit 1
 
-# Run the app (using gunicorn; adjust for your app)
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "main:app"]
+# Run the app with gunicorn for production
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "--workers", "2", "--threads", "4", "app:app"]
